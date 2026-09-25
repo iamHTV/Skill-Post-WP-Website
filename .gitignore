@@ -1,0 +1,12 @@
+.env
+.env.*
+*.env
+!.env.example
+!*.env.example
+/private-wordpress/
+/test-draft.mjs
+/upload-test-featured-image.mjs
+**/assets/image-optimization-check/
+*.receipt.json
+__pycache__/
+*.pyc

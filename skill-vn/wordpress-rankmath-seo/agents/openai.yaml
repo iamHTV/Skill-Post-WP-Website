@@ -1,0 +1,4 @@
+interface:
+  display_name: "SEO Rank Math WordPress"
+  short_description: "Tối ưu và xác minh metadata SEO Rank Math"
+  default_prompt: "Dùng $wordpress-rankmath-seo cho website và phạm vi đã chọn."

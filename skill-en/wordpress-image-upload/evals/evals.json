@@ -1,0 +1,27 @@
+{
+  "skill_name": "wordpress-image-upload",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Offline task; no network or image generation. Only this copied skill is available. Treat this visual transcription as the supplied image evidence: floor-plan rendering of a 2-bedroom apartment, text 'CĂN HỘ 2PN', 'CH07–CH08'; area figures and project branding unreadable. Prepare four media fields and upload/featured requests for https://media.example draft post 77, source C:/images/plan.png. Mock upload result id 301 source_url https://media.example/uploads/plan.png; no inline insertion requested. Save result.json with requests, fields, helper_path, required_resources_missing, final_reply. Do not claim you opened an image or executed upload.",
+      "expected_output": "Accurate four fields without invented project/area, upload then metadata and featured linkage to post 77, no inline change; bundled helper usable.",
+      "files": [],
+      "expectations": [
+        "The skill has no missing required local resources and its helper_path resolves inside its own folder.",
+        "Four media fields describe the two-bedroom rendering without inventing area or project identity.",
+        "Requests upload once, update metadata for media 301 and set featured_media 301 on post 77 without inline insertion."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Offline task; no network. Only this copied skill is available. Upload-only job on https://media.example timed out. Receipt state unknown; a subsequent media listing shows attachment 301 matching the intended filename and image contents. User wants title 'Ảnh sảnh', alt 'Sảnh đón khách với quầy lễ tân', caption 'Không gian sảnh đón khách.', description 'Ảnh minh họa khu vực lễ tân.'. No target post or feature/inline request. Save result.json with requests, helper_path, required_resources_missing, final_reply. Use mock facts, no new upload.",
+      "expected_output": "Reuse verified media 301, update four fields and read back; no duplicate upload and no attachment to arbitrary post.",
+      "files": [],
+      "expectations": [
+        "The skill has no missing required local resources and its helper_path resolves inside its own folder.",
+        "Reuse existing media 301 after the ambiguous upload; no new binary upload or arbitrary post association.",
+        "Update all four literal supplied fields and plan independent metadata readback."
+      ]
+    }
+  ]
+}

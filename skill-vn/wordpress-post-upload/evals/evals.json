@@ -1,0 +1,27 @@
+{
+  "skill_name": "wordpress-post-upload",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Tác vụ offline, không dùng mạng hoặc credentials thật. Chỉ có bản skill này. Chuẩn bị đăng nháp lên https://news.example, env C:/sites/news.env, tiêu đề 'Bản tin tuần', nội dung '<p>Nội dung đã duyệt.</p>'. Người dùng loại trừ SEO, ảnh và relation. Dữ kiện giả lập: wp/v2/posts có sẵn, có quyền tạo. Lưu result.json gồm requests, helper_path (đường dẫn cục bộ thật), required_resources_missing, final_reply. Không gửi request.",
+      "expected_output": "Hỏi gộp tác giả, danh mục và tags còn thiếu; giữ lựa chọn nháp/không ảnh đã rõ. Chỉ chuẩn bị nội dung cục bộ, chưa tạo request sẵn thực thi.",
+      "files": [],
+      "expectations": [
+        "Không thiếu tài nguyên bắt buộc; helper_path trỏ bên trong skill.",
+        "Hỏi gộp tác giả, danh mục, tags; không hỏi lại nháp hoặc ảnh đã loại trừ.",
+        "Chưa có POST sẵn thực thi trước khi được trả lời; giữ nội dung đã duyệt."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Tác vụ offline, không dùng mạng. Chỉ có bản skill này. Với bài 42 tại https://news.example, đổi tác giả thành Mai (ID 7), danh mục Tin dự án (ID 8), nối dự án Sun (ID 99). Bài hiện là nháp, content '<p>Giữ nguyên</p>', author 3, categories [1], featured_media 16. Dữ kiện giả lập: JetEngine relation 6, parent project / child post, một-nhiều, parents hiện [], GET/POST đã mở. Lưu result.json gồm requests, helper_path, required_resources_missing, final_reply. Không ghi thật.",
+      "expected_output": "Cập nhật tối thiểu và thêm relation 6 với context parent, store_items_type update; có bước đọc lại, không ghi đè nội dung/trạng thái.",
+      "files": [],
+      "expectations": [
+        "Không thiếu tài nguyên bắt buộc; helper_path trỏ bên trong skill.",
+        "Bài 42 chỉ đổi author 7, categories [8], giữ content/status/featured media.",
+        "Relation 6 nối parent 99 với child 42, context parent, store_items_type update; có bước đọc lại."
+      ]
+    }
+  ]
+}

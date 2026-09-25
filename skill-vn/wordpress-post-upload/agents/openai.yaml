@@ -1,0 +1,4 @@
+interface:
+  display_name: "Đăng bài WordPress"
+  short_description: "Đăng bài WordPress theo website và phạm vi đã chọn"
+  default_prompt: "Dùng $wordpress-post-upload cho website và phạm vi đã chọn."

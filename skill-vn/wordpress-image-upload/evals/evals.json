@@ -1,0 +1,27 @@
+{
+  "skill_name": "wordpress-image-upload",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Tác vụ offline, không dùng mạng hay tạo ảnh. Chỉ có bản skill này. Xem bản chép nội dung sau là bằng chứng ảnh được cung cấp: phối cảnh mặt bằng căn hộ 2 phòng ngủ, chữ 'CĂN HỘ 2PN', 'CH07–CH08'; không đọc rõ diện tích/tên dự án. Chuẩn bị bốn trường media và request upload/gắn đại diện cho bài nháp 77 tại https://media.example, nguồn C:/images/plan.png. Kết quả upload giả lập: id 301, source_url https://media.example/uploads/plan.png. Không yêu cầu chèn inline. Lưu result.json gồm requests, fields, helper_path, required_resources_missing, final_reply. Không nói đã mở ảnh hoặc upload thật.",
+      "expected_output": "Bốn trường đúng, không bịa tên dự án/diện tích; upload, metadata và featured post 77, không chèn inline; helper đi kèm dùng được.",
+      "files": [],
+      "expectations": [
+        "Không thiếu tài nguyên bắt buộc; helper_path trỏ bên trong skill.",
+        "Bốn trường mô tả mặt bằng 2 phòng ngủ, không bịa diện tích/tên dự án.",
+        "Upload một lần, cập nhật media 301, gán featured_media 301 cho bài 77; không đổi inline."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Tác vụ offline, không dùng mạng. Chỉ có bản skill này. Upload-only tại https://media.example bị timeout, receipt chưa rõ kết quả. Danh sách media sau đó cho thấy attachment 301 khớp tên file và nội dung ảnh dự định. Người dùng muốn title 'Ảnh sảnh', alt 'Sảnh đón khách với quầy lễ tân', caption 'Không gian sảnh đón khách.', description 'Ảnh minh họa khu vực lễ tân.'. Không có bài đích hoặc yêu cầu featured/inline. Lưu result.json gồm requests, helper_path, required_resources_missing, final_reply. Dùng dữ kiện giả lập, không upload mới.",
+      "expected_output": "Dùng lại media 301 đã xác minh, cập nhật bốn trường rồi đọc lại; không upload trùng hay gắn bài tùy ý.",
+      "files": [],
+      "expectations": [
+        "Không thiếu tài nguyên bắt buộc; helper_path trỏ bên trong skill.",
+        "Dùng lại media 301 sau upload không rõ kết quả; không upload nhị phân mới hoặc gắn bài tùy ý.",
+        "Cập nhật đúng bốn giá trị đã cho, có kế hoạch đọc lại độc lập."
+      ]
+    }
+  ]
+}

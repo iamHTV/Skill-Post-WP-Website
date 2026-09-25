@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+.env
+*.env
+*.receipt.json
+/assets/image-optimization-check/

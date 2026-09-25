@@ -1,0 +1,4 @@
+interface:
+  display_name: "WordPress Rank Math SEO"
+  short_description: "Optimize and verify Rank Math metadata per website"
+  default_prompt: "Use $wordpress-rankmath-seo for the selected website and requested scope."

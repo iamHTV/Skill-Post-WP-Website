@@ -1,0 +1,27 @@
+{
+  "skill_name": "wordpress-post-upload",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Offline task; no network or real credentials. Only this copied skill is available. Prepare request JSON to create a draft on https://news.example, env path C:/sites/news.env, title 'Bản tin tuần', content '<p>Nội dung đã duyệt.</p>'. User explicitly excludes SEO, image and relation work. Discovery fixtures: wp/v2/posts exists, create permission true. Save result.json with requests, helper_path (real local path), required_resources_missing, and final_reply. Do not send anything.",
+      "expected_output": "Ask one bundled question for missing author, categories and tags; reuse explicit draft/no-image choices. Prepare local content only, no executable create request before answers.",
+      "files": [],
+      "expectations": [
+        "The skill has no missing required local resources and its helper_path resolves inside its own folder.",
+        "One bundled question requests author, categories and tags without asking again about draft status or excluded image work.",
+        "No POST request is ready for execution before the missing choices are answered; approved content is preserved locally."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Offline task; no network. Only this copied skill is available. For https://news.example post 42 change author to Mai (ID 7), category to Tin dự án (ID 8), connect project Sun (ID 99). Existing post is draft with content '<p>Giữ nguyên</p>', author 3, categories [1], featured_media 16. Site fixture: JetEngine relation 6 parent project / child post one-to-many, current parents [], GET and POST exposed. Save result.json with requests, helper_path, required_resources_missing, final_reply. No real writes.",
+      "expected_output": "Minimal post update plus additive relation 6 request, explicit context parent and store_items_type update, planned readback, no body/status overwrite.",
+      "files": [],
+      "expectations": [
+        "The skill has no missing required local resources and its helper_path resolves inside its own folder.",
+        "Post 42 update sets author 7 and categories [8] without overwriting content, status or featured media.",
+        "Relation 6 request connects parent 99 and child 42 with context parent and store_items_type update; plan includes readback."
+      ]
+    }
+  ]
+}

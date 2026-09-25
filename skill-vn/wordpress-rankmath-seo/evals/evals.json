@@ -1,0 +1,27 @@
+{
+  "skill_name": "wordpress-rankmath-seo",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Tác vụ offline, không dùng mạng. Chỉ có bản skill này. Với nháp 42 tại https://seo.example, đặt tiêu đề SEO Rank Math 'test 1', meta description 'test3'; giữ tiêu đề WordPress. Dữ kiện: updateMeta có và chấp nhận ghi; schema meta bài thường không có trường Rank Math; không có getHead. Lưu result.json gồm requests, helper_path, required_resources_missing, final_reply dựa trên phản hồi giả lập {slug:true,schemas:[]}. Không nói đã thực thi thật.",
+      "expected_output": "Chỉ payload Rank Math đúng giá trị, không đổi tiêu đề WP/điểm SEO; báo phản hồi giả lập được nhận nhưng chưa đọc lại độc lập.",
+      "files": [],
+      "expectations": [
+        "Không thiếu tài nguyên bắt buộc; helper_path trỏ bên trong skill.",
+        "Chỉ gán Rank Math title test 1, description test3 cho nháp 42; không đổi title WordPress hoặc ghi điểm.",
+        "Phân biệt phản hồi giả lập được nhận với đọc lại SEO độc lập và thực thi thật."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Tác vụ offline, không dùng mạng. Chỉ có bản skill này. Website mới https://other.example chỉ dùng Yoast, không có route Rank Math hay meta rank_math có thể ghi. Người dùng yêu cầu đề xuất SEO cho bài 'Cách chăm cây trong nhà', nội dung 'Đặt cây ở vị trí có ánh sáng phù hợp và kiểm tra đất trước khi tưới.'. Không cài plugin hay xuất bản. Lưu result.json gồm suggestions, requests, helper_path, required_resources_missing, final_reply.",
+      "expected_output": "Đề xuất SEO theo bài, không ghi Rank Math/cài plugin hoặc dùng lại website lịch sử.",
+      "files": [],
+      "expectations": [
+        "Không thiếu tài nguyên bắt buộc; helper_path trỏ bên trong skill.",
+        "Đề xuất SEO liên quan bài, không bịa dữ kiện.",
+        "Không chuẩn bị request cài plugin, ghi Rank Math, xuất bản hoặc chuyển sang website khác."
+      ]
+    }
+  ]
+}

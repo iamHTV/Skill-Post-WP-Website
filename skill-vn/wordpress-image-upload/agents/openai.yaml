@@ -1,0 +1,4 @@
+interface:
+  display_name: "Upload ảnh WordPress"
+  short_description: "Đọc ảnh, tối ưu WebP và metadata ảnh WordPress"
+  default_prompt: "Dùng $wordpress-image-upload cho website và phạm vi đã chọn."

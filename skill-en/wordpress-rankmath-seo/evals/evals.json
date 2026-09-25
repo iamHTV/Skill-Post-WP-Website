@@ -1,0 +1,27 @@
+{
+  "skill_name": "wordpress-rankmath-seo",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Offline task; no network. Only this copied skill is available. On https://seo.example draft 42 set Rank Math SEO title 'test 1' and meta description 'test3'. Keep WordPress title unchanged. Fixture: updateMeta exists and accepts write, normal post meta schema has no Rank Math fields and getHead absent. Save result.json with requests, helper_path, required_resources_missing, final_reply based on this mock accepted response: {slug:true,schemas:[]}. Do not claim real execution.",
+      "expected_output": "Rank Math only payload with exact values, no WP title or score update, report accepted mock response with no independent readback.",
+      "files": [],
+      "expectations": [
+        "The skill has no missing required local resources and its helper_path resolves inside its own folder.",
+        "SEO payload sets only the requested Rank Math title test 1 and description test3 for draft 42; does not rename the WordPress post or write a score.",
+        "Reply distinguishes mock accepted response from independent SEO readback and real execution."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Offline task; no network. Only this copied skill is available. New website https://other.example uses Yoast only; Rank Math routes and writable rank_math meta are absent. User asks to prepare SEO suggestions for article 'Cách chăm cây trong nhà', body 'Đặt cây ở vị trí có ánh sáng phù hợp và kiểm tra đất trước khi tưới.' Do not install plugins or publish. Save result.json with suggestions, requests, helper_path, required_resources_missing, final_reply.",
+      "expected_output": "Useful SEO suggestions based on article, no Rank Math or plugin-install writes, no fallback to historical site.",
+      "files": [],
+      "expectations": [
+        "The skill has no missing required local resources and its helper_path resolves inside its own folder.",
+        "Provide relevant article-based SEO suggestions without invented facts.",
+        "Prepare no plugin installation, Rank Math write, publication or fallback to another website."
+      ]
+    }
+  ]
+}

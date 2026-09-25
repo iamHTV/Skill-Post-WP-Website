@@ -1,0 +1,4 @@
+interface:
+  display_name: "WordPress Post Upload"
+  short_description: "Upload WordPress articles across selected websites"
+  default_prompt: "Use $wordpress-post-upload for the selected website and requested scope."

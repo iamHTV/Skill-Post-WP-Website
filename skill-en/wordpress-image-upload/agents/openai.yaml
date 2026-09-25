@@ -1,0 +1,4 @@
+interface:
+  display_name: "WordPress Image Upload"
+  short_description: "Read images and upload optimized WordPress media"
+  default_prompt: "Use $wordpress-image-upload for the selected website and requested scope."
