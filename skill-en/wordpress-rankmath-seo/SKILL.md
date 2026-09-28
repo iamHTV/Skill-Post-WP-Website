@@ -31,6 +31,10 @@ Send only requested keys. Empty values may delete Rank Math metadata; omit unmod
 
 ## Verify and report precisely
 
+For schema work, follow [schema writes and security blocks](references/schema-and-security.md): use `/rankmath/v1/updateSchemas`, distinguish new- creation keys from existing schema- IDs, avoid duplicates, and verify saved records without publishing drafts.
+
+Rank Math REST requests can be blocked by security plugins or hosting/CDN firewalls. If a request fails, diagnose status/body and security logs before concluding the API is unsupported. Follow the same reference for user-facing Wordfence instructions and safe retry; never automatically disable security or allow all REST routes.
+
 Prefer independent metadata readback using registered REST fields or an authorized editor view. If only the plugin's successful write response is available, state “API accepted the update; independent readback unavailable”. Do not turn this into a mandatory user approval step.
 
 For public posts, inspect rendered title, description, canonical, robots and applicable schema. The optional `/rankmath/v1/getHead?url=...` reads generated head tags when Headless CMS Support is enabled; it does not enable metadata writes. Do not enable headless support or publish a draft just for verification.

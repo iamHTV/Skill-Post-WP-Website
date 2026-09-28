@@ -31,6 +31,10 @@ Chỉ gửi key được yêu cầu. Giá trị rỗng có thể xóa metadata; 
 
 ## Xác minh và báo cáo
 
+Với schema, làm theo [ghi schema và xử lý bảo mật](references/schema-and-security.md): dùng `/rankmath/v1/updateSchemas`, phân biệt key tạo new- với ID sửa schema-, tránh trùng và đọc lại bản ghi mà không xuất bản nháp.
+
+REST API Rank Math có thể bị plugin bảo mật hoặc firewall hosting/CDN chặn nhầm. Khi request lỗi, kiểm tra status/nội dung và log bảo mật trước khi kết luận API không hỗ trợ. Tài liệu trên có hướng dẫn Wordfence cho người dùng và cách thử lại an toàn; không tự tắt bảo mật hoặc mở toàn bộ REST API.
+
 Ưu tiên đọc lại độc lập qua trường REST đã đăng ký hoặc editor được phép truy cập. Nếu chỉ có phản hồi ghi thành công của plugin, nói rõ “API đã nhận cập nhật; chưa đọc lại độc lập được”. Đây không phải lý do bắt người dùng xác nhận quyền thêm lần nữa.
 
 Bài công khai: kiểm tra title, description, canonical, robots và schema thực tế. Route tùy chọn `/rankmath/v1/getHead?url=...` đọc head khi Headless CMS Support đã bật; không mở quyền ghi metadata. Không tự bật headless hoặc đăng bản nháp chỉ để xác minh.
